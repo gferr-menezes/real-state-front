@@ -9,6 +9,9 @@ export default [
       {
         path: "",
         name: "auth",
+        meta: {
+          isPublic: true,
+        },
         component: () => import("./pages/Index.vue"),
       },
     ],

@@ -43,28 +43,30 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach(async (to, from, next) => {
     const visibilityPublic = <boolean>to.meta.isPublic;
 
-    const routeName = to.name;
+    console.log("visibilityPublic", visibilityPublic);
+    console.log("to", to);
 
     if (visibilityPublic) {
       next(true);
-      return;
-    }
+    } else {
+      const routeName = to.name;
 
-    if (routeName === "registerEdit") {
-      const id = to.params.id as unknown as number;
-      let userLogged = authStore.userLogged;
-      if (!userLogged) {
-        await authStore.getUserDataLogged();
-      }
-      userLogged = authStore.userLogged;
-      if (authStore.isAdmin) {
-        next(true);
-        return;
-      } else {
-        if (userLogged?.userId === parseInt(id.toString())) {
+      if (routeName === "registerEdit") {
+        const id = to.params.id as unknown as number;
+        let userLogged = authStore.userLogged;
+        if (!userLogged) {
+          await authStore.getUserDataLogged();
+        }
+        userLogged = authStore.userLogged;
+        if (authStore.isAdmin) {
           next(true);
+          return;
         } else {
-          next(false);
+          if (userLogged?.userId === parseInt(id.toString())) {
+            next(true);
+          } else {
+            next(false);
+          }
         }
       }
     }

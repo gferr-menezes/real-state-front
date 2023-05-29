@@ -16,9 +16,6 @@ const routes: RouteRecordRaw[] = [
     path: "/",
     component: () => import("layouts/MainLayoutWeb.vue"),
     children: routesWebFinal,
-    meta: {
-      isPublic: true,
-    },
   },
   {
     path: "/adm",
