@@ -45,6 +45,10 @@ import MainBanner from 'src/components/MainBanner.vue';
 const router = useRouter();
 
 const goToPage = (page: string) => {
+  if (page === 'auth') {
+    window.location.href = 'adm/auth';
+    return;
+  }
   router.push({ name: page });
 };
 </script>

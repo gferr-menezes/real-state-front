@@ -43,9 +43,6 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach(async (to, from, next) => {
     const visibilityPublic = <boolean>to.meta.isPublic;
 
-    console.log("visibilityPublic", visibilityPublic);
-    console.log("to", to);
-
     if (visibilityPublic) {
       next(true);
     } else {
