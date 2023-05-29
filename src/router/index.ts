@@ -45,6 +45,7 @@ export default route(function (/* { store, ssrContext } */) {
 
     if (visibilityPublic) {
       next(true);
+      return;
     } else {
       const routeName = to.name;
 

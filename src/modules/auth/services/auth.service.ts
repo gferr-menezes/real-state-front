@@ -1,7 +1,6 @@
 import { api } from "src/boot/axios";
 import { LocalStorage } from "quasar";
 import { LEVEL_ACCESS } from "src/modules/register/contracts";
-import { useRouter } from "vue-router";
 
 export type AuthResponse = {
   token: string;
@@ -19,8 +18,6 @@ export class AuthService {
    */
   async doLogin(email: string, password: string): Promise<void> {
     try {
-      const router = useRouter();
-
       const response = await api.post<AuthResponse>(`${this.endpoint}/login`, {
         email,
         password,

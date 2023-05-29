@@ -32,12 +32,11 @@
 
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
+import { LocalStorage } from 'quasar';
 import { useRoute } from 'vue-router';
 import MenuLeft from './MenuLeft.vue';
 import { useAuthStore } from 'src/stores/auth';
 import { LEVEL_ACCESS } from 'src/modules/register/contracts';
-
-
 
 const authStore = useAuthStore();
 const route = useRoute();
@@ -50,6 +49,12 @@ function toggleLeftDrawer() {
 }
 
 onBeforeMount(async () => {
+
+  const loginData = LocalStorage.getItem('loginData');
+
+  if (!loginData) {
+    return
+  }
 
   await authStore.getUserDataLogged();
 
