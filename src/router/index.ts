@@ -66,6 +66,8 @@ export default route(function (/* { store, ssrContext } */) {
             next(false);
           }
         }
+      } else {
+        next(true);
       }
     }
   });

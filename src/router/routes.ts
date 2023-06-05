@@ -4,9 +4,10 @@ import web from "src/modules/web/routes";
 
 import auth from "src/modules/auth/routes";
 import register from "src/modules/register/routes";
+import project from "src/modules/project/routes";
 
 const baseRoutes: RouteRecordRaw[] = [];
-const systemRoutes = baseRoutes.concat(auth, register);
+const systemRoutes = baseRoutes.concat(auth, register, project);
 
 const routesWeb: RouteRecordRaw[] = [];
 const routesWebFinal = routesWeb.concat(web);

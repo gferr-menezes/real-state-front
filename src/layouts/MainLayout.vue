@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hhh lpR lfr">
+  <q-layout view="lHh Lpr lFf">
 
     <q-header bordered class="bg-primary text-white" v-if="showComponents">
       <q-toolbar>
@@ -14,18 +14,10 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above side="left" bordered :mini="miniState" :width="280" v-if="showComponents">
-      <q-list>
-        <q-item-label header>
-          Menu de acesso
-        </q-item-label>
-
-        <MenuLeft />
-      </q-list>
-    </q-drawer>
+    <MenuLeft :mini="miniState" />
 
     <q-page-container>
-      <router-view class="q-pl-xs q-pr-sm" style="padding-top: 5px;" />
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>

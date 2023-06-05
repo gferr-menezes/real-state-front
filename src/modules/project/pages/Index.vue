@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import TableListRegister from '../components/TableListRegister.vue';
+import TableListRegister from '../components/TableListProject.vue';
 
 
 </script>
