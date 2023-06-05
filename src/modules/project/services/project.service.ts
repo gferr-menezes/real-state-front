@@ -43,4 +43,24 @@ export class ProjectService {
     const result = await api.put(this.endpoint, project);
     return result.data;
   }
+
+  async findAllByUserId(
+    id?: number
+  ): Promise<OutputApiPaginationInterface<OutputProject>> {
+    const query_params: {
+      pagination?: InputApiPaginationInterface;
+    } = {
+      pagination: {
+        page: 1,
+        per_page: 300,
+      },
+    };
+    const result = await api.get(`${this.endpoint}/per-user/${id}`, {
+      params: {
+        pagination: JSON.stringify(query_params.pagination),
+      },
+    });
+
+    return result.data;
+  }
 }

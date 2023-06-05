@@ -294,14 +294,13 @@ const submitForm = async () => {
 const save = async () => {
   loading.value = true;
   try {
-
     const userLogged = getUserLogged();
     const dataSave = { ...form };
     dataSave.user_id = userLogged.userId;
 
     await projectService.create(dataSave);
+    notification.success('Cadastro realizado com sucesso');
     resetForm();
-
   } catch (error) {
 
   } finally {
@@ -312,7 +311,6 @@ const save = async () => {
 const update = async () => {
   try {
     loading.value = true;
-
 
     const dataUpdate = { ...form };
     dataUpdate.id = form.id as unknown as number;

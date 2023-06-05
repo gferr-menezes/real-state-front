@@ -5,31 +5,14 @@
         <FormRegister />
       </q-card-section>
     </q-card>
-
-    <q-card class="q-mt-sm text-center">
-      <q-card-section>
-        <div>
-          Você não possui projetos e nem imoveis cadastrados.
-        </div>
-        <div>
-          <span class="text-blue cursor-pointer" @click="goToPage('projectCreate')">Clique aqui</span> para cadastrar
-        </div>
-      </q-card-section>
-    </q-card>
+    <CardListProject />
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
 
 import FormRegister from '../components/FormRegister.vue';
-
-const goToPage = (pageName: string) => {
-  router.push({ name: pageName });
-};
-
+import CardListProject from 'src/modules/project/components/CardListProject.vue';
 
 </script>
 

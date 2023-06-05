@@ -61,4 +61,9 @@ export class AuthService {
     }
     return null;
   }
+
+  async logout(): Promise<void> {
+    LocalStorage.remove("loginData");
+    window.location.href = "/";
+  }
 }

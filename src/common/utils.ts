@@ -97,4 +97,16 @@ const timeAgo = (args: {
   };
 };
 
-export { firstCapitalize, validateEmail, getUserLogged, timeAgo };
+const formatMoneyBr = (value: number) => {
+  value = !value ? 0 : value;
+  let val = (value / 1).toFixed(2).replace(".", ",");
+  return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+};
+
+export {
+  firstCapitalize,
+  validateEmail,
+  getUserLogged,
+  timeAgo,
+  formatMoneyBr,
+};

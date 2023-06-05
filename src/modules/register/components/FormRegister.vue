@@ -146,7 +146,7 @@
       </div>
 
       <div class="row q-mt-sm">
-        <div class="col-12 col-md-1">
+        <div class="col-12">
           <q-btn type="button" label="Salvar dados" color="primary" unelevated
             :class="$q.screen.lt.md ? 'full-width' : null" :size="$q.screen.gt.sm ? '11px' : ''" @click="submitForm" />
           <q-btn type="button" label="Cancelar" outline color="grey-8" class="q-ml-sm"
