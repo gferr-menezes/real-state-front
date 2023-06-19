@@ -77,3 +77,23 @@ export enum SITUATION_REGISTER {
 export interface Filter {
   input: string;
 }
+
+export interface InputAttachment {
+  id?: number;
+  path: string;
+  project_id: number;
+  project_cover?: boolean;
+  file_name: string;
+  file_extension: string;
+}
+
+export interface OutputAttachment {
+  id: number;
+  path: string;
+  project_id: number;
+  project_cover?: boolean;
+  file_name: string;
+  file_extension: string;
+  created_at: Date;
+  updated_at: Date;
+}

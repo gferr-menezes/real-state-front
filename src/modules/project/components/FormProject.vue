@@ -15,9 +15,15 @@
             </template>
           </q-select>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 q-pr-sm q-pt-md">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-1 q-pr-sm q-pt-md">
           <q-checkbox right-label v-model="form.is_active" label="Cadastro liberado no sistema"
             :disable="!authStore.isAdmin" />
+        </div>
+
+        <div class="col-2 q-pt-lg">
+          <q-btn type="button" label="Anexar arquivos" color="primary" unelevated
+            :class="$q.screen.lt.md ? 'full-width' : null" :size="$q.screen.gt.sm ? '11px' : ''"
+            @click="openDialogAttachment()" />
         </div>
       </div>
 
@@ -206,6 +212,7 @@
         </div>
       </div>
     </q-form>
+    <DialogFormAttachment :dataDialog="dataDialogFormAttachment" />
     <DialogLoading v-if="loading" />
   </div>
 </template>
@@ -221,6 +228,8 @@ import { ProjectService } from '../services/project.service';
 import QCurrencyInput from 'src/components/QCurrencyInput.vue';
 import notification from 'src/common/notification';
 import { useAuthStore } from 'src/stores/auth';
+import DialogFormAttachment from './DialogFormAttachment.vue';
+
 
 const route = useRoute();
 const router = useRouter();
@@ -231,6 +240,12 @@ const authStore = useAuthStore();
  * data
  */
 const loading = ref(false);
+const dataDialogFormAttachment = reactive({
+  args: {
+    openDialog: false,
+    idField: 0
+  },
+});
 
 const myForm: any = ref();
 
@@ -411,6 +426,13 @@ const cancelData = () => {
     resetForm();
   }
 
+};
+
+const openDialogAttachment = () => {
+  dataDialogFormAttachment.args = {
+    openDialog: true,
+    idField: form.id!
+  }
 };
 
 const hideLoading = () => {
