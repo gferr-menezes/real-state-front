@@ -20,7 +20,7 @@
             :disable="!authStore.isAdmin" />
         </div>
 
-        <div class="col-2 q-pt-lg">
+        <div class="col-2 q-pt-lg" v-if="form.id">
           <q-btn type="button" label="Anexar arquivos" color="primary" unelevated
             :class="$q.screen.lt.md ? 'full-width' : null" :size="$q.screen.gt.sm ? '11px' : ''"
             @click="openDialogAttachment()" />
